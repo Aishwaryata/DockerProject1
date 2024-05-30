@@ -16,7 +16,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/clients', async (req, res) => {
+    console.log('initializing service');
     const clients = await mongoose.connection.db.collection('clients').find().toArray();
+    console.log('line 20 ran');
     res.json(clients);
 });
 
