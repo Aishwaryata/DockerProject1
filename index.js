@@ -7,9 +7,13 @@ app.use(express.json());
 
 const mongoUri = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/${process.env.MONGO_DB}?authSource=admin`;
 
+console.log('MongoDB URI:', mongoUri); // Log the URI
+
 mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected...'))
-    .catch(err => console.log(err));
+    .catch(err => {
+        console.error('Error connecting to MongoDB', err);
+    });
 
 app.get('/', async (req, res) => {
     try {
@@ -29,6 +33,7 @@ app.get('/', async (req, res) => {
             </html>
         `);
     } catch (err) {
+        console.error('Error fetching clients', err);
         res.status(500).send('Error fetching clients');
     }
 });

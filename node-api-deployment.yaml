@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: node-api
-        image: aishwaryatanagp/node-image:1
+        image: aishwaryatanagp/node-image:2
         ports:
         - containerPort: 3000
         env:
