@@ -4,9 +4,10 @@ metadata:
   name: node-api
   namespace: development
 spec:
-  type: LoadBalancer
   ports:
   - port: 80
+    protocol: TCP
     targetPort: 3000
   selector:
     app: node-api
+  type: ClusterIP

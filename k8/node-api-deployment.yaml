@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: node-api
-        image: aishwaryatanagp/node-image:2
+        image: aishwaryatanagp/node-image:3
         ports:
         - containerPort: 3000
         env:
@@ -41,8 +41,8 @@ spec:
               key: MONGO_PASSWORD
         resources:
           requests:
-            memory: "250Mi"
-            cpu: "250m"
+            memory: "100Mi"
+            cpu: "100m"
           limits:
-            memory: "500Mi"
-            cpu: "500m"
+            memory: "200Mi"
+            cpu: "200m"
